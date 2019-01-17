@@ -278,11 +278,20 @@ public class Chessboard {
 		// используйте символы в components, чтобы установить координаты массива
 		// переместить начало и переместить конец назначения
 
-		srcRow = 7 - (components[0].charAt(1) - '1');
+		/*srcRow = 7 - (components[0].charAt(1) - '1');
 		srcCol = components[0].charAt(0) - 'a';
 		destRow = 7 - (components[2].charAt(1) - '1');
 		destCol = components[2].charAt(0) - 'a';
-
+		*/	
+		
+		while(moveValid()!=true){
+		Random rand = new Random();
+		srcCol = rand.nextInt(8);
+		srcRow = rand.nextInt(8);
+		destRow = rand.nextInt(8);
+		destCol = rand.nextInt(8);
+		}
+		
 		if (moveValid()) {
 			updateScore();
 			// положить фигуру в пункт назначения
