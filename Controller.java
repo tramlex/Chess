@@ -10,7 +10,7 @@ public class Controller {
 		Chessboard myChessboard = new Chessboard();
 
 
-		while (myChessboard.getGameRunning()) {
+		while (myChessboard.isGameRunning()) {
 
 			myChessboard.printBoard();
 			myChessboard.move();

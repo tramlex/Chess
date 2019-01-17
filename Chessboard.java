@@ -35,7 +35,7 @@ public class Chessboard {
 	 * @return  Boolean который false если юзер хочет выйти из 
 	 *         gameRunning
 	 */
-	public Boolean getGameRunning() {
+	public Boolean isGameRunning() {
 		return this.gameRunning;
 	}
 
