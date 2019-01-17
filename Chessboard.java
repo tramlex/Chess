@@ -4,7 +4,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 
-public class Chessboard {
+public class Chessboard implements Interface {
 
 	private Boolean gameRunning;
 	private AbstractPiece[][] chessboard = new AbstractPiece[numOfRowsAndCols][numOfRowsAndCols];// [row][column]
