@@ -8,7 +8,7 @@ public class Chessboard {
 
 	private Boolean gameRunning;
 	private AbstractPiece[][] chessboard = new AbstractPiece[numOfRowsAndCols][numOfRowsAndCols];// [row][column]
-	Scanner user_input = new Scanner(System.in);
+	Scanner userInput = new Scanner(System.in);
 	private static final int numOfRowsAndCols = 8;
 	private static int srcRow, srcCol, destRow, destCol;
 	private static int whiteScore = 0, blackScore = 0;
@@ -160,27 +160,27 @@ public class Chessboard {
 
 		if (srcRow < 0 || srcRow > 7 || srcCol < 0 || srcCol > 7 || destRow < 0
 				|| destRow > 7 || destCol < 0 || destCol > 7) {
-			System.out.println("Move is outside the board");
+			//System.out.println("Move is outside the board");
 			return false;
 		}
 
 		// Неверно, если клетка пустая
 		if (chessboard[srcRow][srcCol] == null) {
-			System.err.println("Origin is empty");
+			//System.err.println("Origin is empty");
 			return false;
 		}
 
 		// Неверно , если игрок двигается, когда не его ход
 		if ((chessboard[srcRow][srcCol].isWhite && !whitesTurnToMove)
 				|| (!chessboard[srcRow][srcCol].isWhite && whitesTurnToMove)) {
-			System.err.println("It's not your turn");
+			//System.err.println("It's not your turn");
 			return false;
 		}
 
 		// вернуть false, если не соблюдаются определенные правила
 		if (!chessboard[srcRow][srcCol].isMoveValid(srcRow, srcCol, destRow,
 				destCol)) {
-			System.err.println("This piece doesn't move like that");
+			//System.err.println("This piece doesn't move like that");
 			return false;
 		}
 
@@ -193,14 +193,14 @@ public class Chessboard {
 		// Неверно, если белые едят белых
 		if (chessboard[srcRow][srcCol].isWhite
 				&& chessboard[destRow][destCol].isWhite) {
-			System.err.println("White cannot land on white");
+			//System.err.println("White cannot land on white");
 			return false;
 		}
 
 		// Неверно , если черные едят черных
 		if (!chessboard[srcRow][srcCol].isWhite
 				&& !chessboard[destRow][destCol].isWhite) {
-			System.err.println("Black cannot land on black");
+			//System.err.println("Black cannot land on black");
 			return false;
 		}
 
@@ -258,7 +258,7 @@ public class Chessboard {
 							+ "___________________________________________________\n");
 		}
 
-		move = user_input.nextLine();
+		move = userInput.nextLine();
 
 		if (move.equalsIgnoreCase("exit")) {
 			gameRunning = false;
@@ -285,14 +285,19 @@ public class Chessboard {
 		*/	
 		
 		while(moveValid()!=true){
-		Random rand = new Random();
-		srcCol = rand.nextInt(8);
-		srcRow = rand.nextInt(8);
-		destRow = rand.nextInt(8);
-		destCol = rand.nextInt(8);
+			Random rand = new Random();
+			srcCol = rand.nextInt(8);
+			srcRow = rand.nextInt(8);
+			destRow = rand.nextInt(8);
+			destCol = rand.nextInt(8);
 		}
 		
-		if (moveValid()) {
+		updateScore();
+		chessboard[destRow][destCol] = chessboard[srcRow][srcCol];
+		chessboard[srcRow][srcCol] = null;
+		whitesTurnToMove = !whitesTurnToMove;
+		
+		/*if (moveValid()) {
 			updateScore();
 			// положить фигуру в пункт назначения
 			chessboard[destRow][destCol] = chessboard[srcRow][srcCol];
@@ -303,7 +308,7 @@ public class Chessboard {
 			invalidMove = true;
 			move();
 
-		}
+		}*/
 
 	}
 
