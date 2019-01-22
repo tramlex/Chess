@@ -154,7 +154,7 @@ public class Chessboard implements Interface {
 	 * ладья движется по прямой линии.
 	 */
 
-	private boolean moveValid() {
+	public boolean moveValid() {
 
 		// недействителен, если фигура выходит за край
 
