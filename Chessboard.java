@@ -4,18 +4,18 @@ import java.util.Random;
 import java.util.Scanner;
 
 
-public class Chessboard implements Interface {
+public class Chessboard {
 
 	private Boolean gameRunning;
 	private AbstractPiece[][] chessboard = new AbstractPiece[numOfRowsAndCols][numOfRowsAndCols];// [row][column]
 	Scanner userInput = new Scanner(System.in);
 	private static final int numOfRowsAndCols = 8;
-	private static int srcRow, srcCol, destRow, destCol;
-	private static int whiteScore = 0, blackScore = 0;
-	private static Boolean whitesTurnToMove;
+	private int srcRow, srcCol, destRow, destCol;
+	private int whiteScore = 0, blackScore = 0;
+	private Boolean whitesTurnToMove;
 	// Установите в значение true, если перемещение недопустимо. Запрашивает ввод пользователя снова в move ()
 	// метод.
-	private static Boolean invalidMove = false;
+	private Boolean invalidMove = false;
 	// Содержит строку с пользовательским вводом для инструкций перемещения
 	String move;
 
@@ -43,7 +43,7 @@ public class Chessboard implements Interface {
 	 * Заполняет шахматную доску AbstractPiece правильными фигурами и
 	 * случайным образом определяет, движутся ли белые или черные первыми
 	 */
-	private static void initialiseBoard(AbstractPiece[][] chessboard) {
+	private void initialiseBoard(AbstractPiece[][] chessboard) {
 		// шахматная доска с матрицей 8х8
 		// строки [0] и [1] черные
 		// строки [6] и [7] белые
