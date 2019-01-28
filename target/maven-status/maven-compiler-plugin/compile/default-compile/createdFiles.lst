@@ -1,5 +1,6 @@
 Queen.class
 Bishop.class
+Controller1.class
 Chessboard.class
 AbstractPiece.class
 Rook.class
