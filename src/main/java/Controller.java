@@ -10,7 +10,7 @@ public class Controller {
 		Chessboard myChessboard = new Chessboard();
 
 		Cos cos = new Cos();		
-		System.out.println(cos.value(0));
+		System.out.println(cos.value(0.5));
 		
 		while (myChessboard.isGameRunning()) {
 
